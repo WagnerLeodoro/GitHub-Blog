@@ -9,6 +9,10 @@ export const PostCardContainer = styled.section`
   margin-bottom: 2rem;
 
   margin-top: 3rem;
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 export const PostCardContent = styled.div`

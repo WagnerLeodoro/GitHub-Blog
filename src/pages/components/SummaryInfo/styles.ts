@@ -39,6 +39,10 @@ export const CardContent = styled.div`
     color: ${({ theme }) => theme.colors["base-text"]};
     font-size: ${({ theme }) => theme.fontSizes["md"]};
   }
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 export const TitleContent = styled.div`
@@ -51,11 +55,15 @@ export const TitleContent = styled.div`
   }
 `;
 
-export const Links = styled.div`
+export const Links = styled.nav`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 1.25rem;
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 export const ExternalLink = styled.span`

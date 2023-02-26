@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 import {
   CardContent,
   ExternalLink,
@@ -25,10 +27,12 @@ export function ProfileInfo() {
         <CardContent>
           <TitleContent>
             <h1>Cameron Williamson</h1>
-            <ExternalLink>
-              GITHUB
-              <FaExternalLinkAlt />
-            </ExternalLink>
+            <NavLink to="https://github.com/WagnerLeodoro">
+              <ExternalLink>
+                GITHUB
+                <FaExternalLinkAlt />
+              </ExternalLink>
+            </NavLink>
           </TitleContent>
           <p>
             Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu

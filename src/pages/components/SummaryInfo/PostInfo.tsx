@@ -5,6 +5,7 @@ import {
   FaExternalLinkAlt,
   FaGithub,
 } from "react-icons/fa";
+import { NavLink } from "react-router-dom";
 import {
   CardContent,
   ExternalLink,
@@ -22,14 +23,18 @@ export function PostInfo() {
       <SummaryPostCard>
         <CardContent>
           <Links>
-            <ExternalLink>
-              <FaChevronLeft />
-              VOLTAR
-            </ExternalLink>
-            <ExternalLink>
-              VER NO GITHUB
-              <FaExternalLinkAlt />
-            </ExternalLink>
+            <NavLink to="/" title="Blog">
+              <ExternalLink>
+                <FaChevronLeft />
+                VOLTAR
+              </ExternalLink>
+            </NavLink>
+            <NavLink to="https://www.github.com/">
+              <ExternalLink>
+                VER NO GITHUB
+                <FaExternalLinkAlt />
+              </ExternalLink>
+            </NavLink>
           </Links>
           <TitleContent>
             <h1>JavaScript data types and data structures</h1>
