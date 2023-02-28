@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { PostCardContainer, PostCardContent, PostContent } from "./styles";
 
-export default function PostCard() {
+export function PostCard() {
   return (
     <PostCardContainer>
       <NavLink to="/post" title="postTitle">
