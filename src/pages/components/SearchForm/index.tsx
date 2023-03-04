@@ -1,11 +1,14 @@
+import { useContext } from "react";
+import { BlogContext } from "../../../contexts/BlogContext";
 import { FormWrapper, PubicationsInfo, SearchFormContainer } from "./styles";
 
 export function SearchForm() {
+  const { posts } = useContext(BlogContext);
   return (
     <FormWrapper>
       <PubicationsInfo>
         <p>Publicações</p>
-        <span>6 publicações</span>
+        <span>{posts.length} publicações</span>
       </PubicationsInfo>
       <SearchFormContainer action="">
         <input type="text" placeholder="Buscar publicações" />
