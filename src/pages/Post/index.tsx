@@ -21,7 +21,6 @@ export function Post() {
       const response = await api.get(
         `repos/${username}/${repoName}/issues/${id}}`
       );
-      console.log(response.data);
       setPostData(response.data);
     } finally {
       setLoading(false);

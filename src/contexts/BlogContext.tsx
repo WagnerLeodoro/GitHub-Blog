@@ -54,7 +54,6 @@ export function BlogProvider({ children }: BlogProviderProps) {
 
   async function loadUserData() {
     const response = await api.get(`users/${username}`);
-    console.log(response.data);
     setUserInformations(response.data);
   }
 
@@ -64,7 +63,6 @@ export function BlogProvider({ children }: BlogProviderProps) {
         `search/issues?q=${query}%20repo:${username}/${repoName}`
       );
 
-      console.log(response.data);
       setPosts(response.data.items);
     },
     [posts]
