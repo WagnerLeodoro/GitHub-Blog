@@ -1,27 +1,27 @@
 import styled from "styled-components";
 
-export const PostCardContainer = styled.section`
+export const PostCardContainer = styled.div`
   width: 100%;
-  max-width: 1120px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  margin-bottom: 2rem;
-
-  margin-top: 3rem;
-
+  height: 260px;
   a {
     text-decoration: none;
   }
 `;
 
+export const PostCardHeader = styled.div`
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+`;
+
 export const PostCardContent = styled.div`
+  display: flex;
+  flex-direction: column;
   background: ${({ theme }) => theme.colors["base-post"]};
   border-radius: 10px;
   padding: 2rem;
   height: 260px;
-  overflow: hidden;
-  text-overflow: ellipsis;
 
   header {
     display: flex;
@@ -32,7 +32,6 @@ export const PostCardContent = styled.div`
 
   h1 {
     margin-top: 1rem;
-    width: 280px;
     font-size: ${({ theme }) => theme.fontSizes["xl"]};
     color: ${({ theme }) => theme.colors["base-title"]};
   }
@@ -44,7 +43,6 @@ export const PostCardContent = styled.div`
 `;
 
 export const PostContent = styled.div`
-  width: 100%;
   display: -webkit-box;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -52,6 +50,7 @@ export const PostContent = styled.div`
   -webkit-box-orient: vertical;
 
   p {
+    width: 283px;
     color: ${({ theme }) => theme.colors["base-text"]};
   }
 `;

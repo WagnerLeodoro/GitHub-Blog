@@ -1,78 +1,27 @@
 import { NavLink } from "react-router-dom";
-import { PostCardContainer, PostCardContent, PostContent } from "./styles";
+import { IPosts } from "../../../contexts/BlogContext";
+import {
+  PostCardContainer,
+  PostCardContent,
+  PostCardHeader,
+  PostContent,
+} from "./styles";
 
-export function PostCard() {
+interface PostProps {
+  post: IPosts;
+}
+
+export function PostCard({ post }: PostProps) {
   return (
     <PostCardContainer>
-      <NavLink to="/post" title="postTitle">
+      <NavLink to={`/post/${post.number}`} title={`${post.title}`}>
         <PostCardContent>
-          <header>
-            <h1>JavaScript data types and data structures</h1>
-            <span>Há 1 dia</span>
-          </header>
+          <PostCardHeader>
+            <h1>{post.title}</h1>
+            <span>{post.created_at}</span>
+          </PostCardHeader>
           <PostContent>
-            <p>
-              Programming languages all have built-in data structures, but these
-              often differ from one language to another. This article attempts
-              to list the built-in data structures available in JavaScript and
-              what properties they have. These can be used to build other data
-              structures. Wherever possible, comparisons with other languages
-              are drawn.
-            </p>
-          </PostContent>
-        </PostCardContent>
-      </NavLink>
-      <NavLink to="/post" title="postTitle">
-        <PostCardContent>
-          <header>
-            <h1>JavaScript data types and data structures</h1>
-            <span>Há 1 dia</span>
-          </header>
-          <PostContent>
-            <p>
-              Programming languages all have built-in data structures, but these
-              often differ from one language to another. This article attempts
-              to list the built-in data structures available in JavaScript and
-              what properties they have. These can be used to build other data
-              structures. Wherever possible, comparisons with other languages
-              are drawn.
-            </p>
-          </PostContent>
-        </PostCardContent>
-      </NavLink>
-      <NavLink to="/post" title="postTitle">
-        <PostCardContent>
-          <header>
-            <h1>JavaScript data types and data structures</h1>
-            <span>Há 1 dia</span>
-          </header>
-          <PostContent>
-            <p>
-              Programming languages all have built-in data structures, but these
-              often differ from one language to another. This article attempts
-              to list the built-in data structures available in JavaScript and
-              what properties they have. These can be used to build other data
-              structures. Wherever possible, comparisons with other languages
-              are drawn.
-            </p>
-          </PostContent>
-        </PostCardContent>
-      </NavLink>
-      <NavLink to="/post" title="postTitle">
-        <PostCardContent>
-          <header>
-            <h1>JavaScript data types and data structures</h1>
-            <span>Há 1 dia</span>
-          </header>
-          <PostContent>
-            <p>
-              Programming languages all have built-in data structures, but these
-              often differ from one language to another. This article attempts
-              to list the built-in data structures available in JavaScript and
-              what properties they have. These can be used to build other data
-              structures. Wherever possible, comparisons with other languages
-              are drawn.
-            </p>
+            <p>{post.body}</p>
           </PostContent>
         </PostCardContent>
       </NavLink>

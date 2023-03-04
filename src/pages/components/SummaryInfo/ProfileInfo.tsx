@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { BlogContext } from "../../../contexts/BlogContext";
 
 import {
   CardContent,
@@ -16,8 +18,6 @@ import {
   FaGithub,
   FaUserFriends,
 } from "react-icons/fa";
-import { BlogContext } from "../../../contexts/BlogContext";
-import { useContext } from "react";
 
 export function ProfileInfo() {
   const { userInformations } = useContext(BlogContext);
