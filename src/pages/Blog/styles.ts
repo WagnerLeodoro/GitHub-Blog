@@ -8,8 +8,9 @@ export const BlogContainer = styled.main`
 `;
 
 export const Posts = styled.div`
+  width: 100%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
   gap: 2rem;
   margin-bottom: 2rem;
 

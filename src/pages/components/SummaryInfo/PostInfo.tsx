@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { IPosts } from "../../../contexts/BlogContext";
+import { formatDistanceToNow } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
 
 import {
   FaCalendar,
@@ -58,7 +60,12 @@ export function PostInfo({ postData, isLoading }: PostHeaderProps) {
               </InfoContent>
               <InfoContent>
                 <FaCalendar size={18} />
-                <p>Há 1 dia</p>
+                <p>
+                  {formatDistanceToNow(new Date(postData.created_at), {
+                    addSuffix: true,
+                    locale: ptBR,
+                  })}
+                </p>
               </InfoContent>
               <InfoContent>
                 <FaComment size={18} />

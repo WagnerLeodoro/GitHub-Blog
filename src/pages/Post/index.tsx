@@ -1,9 +1,10 @@
 import { IPosts } from "../../contexts/BlogContext";
 import { PostInfo } from "../components/SummaryInfo/PostInfo";
-import { PostContainer, PostContent } from "./styles";
+import { PostContainer } from "./styles";
 import { useState, useCallback, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { api } from "../../lib/axios";
+import PostContent from "../components/PostContent";
 
 const username = import.meta.env.VITE_GITHUB_USERNAME;
 const repoName = import.meta.env.VITE_GITHUB_REPONAME;
@@ -34,9 +35,7 @@ export function Post() {
   return (
     <PostContainer>
       <PostInfo postData={postData} isLoading={loading} />
-      <PostContent>
-        <p>{postData.body}</p>
-      </PostContent>
+      {!loading && <PostContent content={postData.body} />}
     </PostContainer>
   );
 }

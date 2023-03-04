@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const SummaryContainer = styled.section`
   display: flex;
+  min-height: 13.25rem;
   justify-content: center;
   max-width: 1120px;
   margin: 0 auto;
@@ -10,7 +11,7 @@ export const SummaryContainer = styled.section`
 
 export const SummaryProfileCard = styled.div`
   display: flex;
-  width: 864px;
+  width: 100%;
   background: ${({ theme }) => theme.colors["base-profile"]};
   border-radius: 10px;
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
@@ -23,6 +24,7 @@ export const SummaryProfileCard = styled.div`
 `;
 
 export const SummaryPostCard = styled.div`
+  width: 100%;
   background: ${({ theme }) => theme.colors["base-profile"]};
   border-radius: 10px;
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
@@ -31,7 +33,6 @@ export const SummaryPostCard = styled.div`
 
 export const CardContent = styled.div`
   display: flex;
-  width: 864px;
   justify-content: space-between;
   flex-direction: column;
   margin-left: 2rem;
