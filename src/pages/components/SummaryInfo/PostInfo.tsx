@@ -1,3 +1,8 @@
+import { NavLink } from "react-router-dom";
+import { IPosts } from "../../../contexts/BlogContext";
+import { formatDistanceToNow } from "date-fns";
+import ptBR from "date-fns/locale/pt-BR";
+
 import {
   FaCalendar,
   FaChevronLeft,
@@ -5,7 +10,7 @@ import {
   FaExternalLinkAlt,
   FaGithub,
 } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+
 import {
   CardContent,
   ExternalLink,
@@ -16,45 +21,60 @@ import {
   SummaryContainer,
   TitleContent,
 } from "./styles";
+import { Spinner } from "../../../components/Spinner";
 
-export function PostInfo() {
+interface PostHeaderProps {
+  postData: IPosts;
+  isLoading: boolean;
+}
+
+export function PostInfo({ postData, isLoading }: PostHeaderProps) {
   return (
     <SummaryContainer>
-      <SummaryPostCard>
-        <CardContent>
-          <Links>
-            <NavLink to="/" title="Blog">
-              <ExternalLink>
-                <FaChevronLeft />
-                VOLTAR
-              </ExternalLink>
-            </NavLink>
-            <NavLink to="https://www.github.com/">
-              <ExternalLink>
-                VER NO GITHUB
-                <FaExternalLinkAlt />
-              </ExternalLink>
-            </NavLink>
-          </Links>
-          <TitleContent>
-            <h1>JavaScript data types and data structures</h1>
-          </TitleContent>
-          <MoreInfo>
-            <InfoContent>
-              <FaGithub size={18} />
-              <p>cameronwil</p>
-            </InfoContent>
-            <InfoContent>
-              <FaCalendar size={18} />
-              <p>Há 1 dia</p>
-            </InfoContent>
-            <InfoContent>
-              <FaComment size={18} />
-              <p>5 Comentários</p>
-            </InfoContent>
-          </MoreInfo>
-        </CardContent>
-      </SummaryPostCard>
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <SummaryPostCard>
+          <CardContent>
+            <Links>
+              <NavLink to="/" title="Blog">
+                <ExternalLink>
+                  <FaChevronLeft />
+                  VOLTAR
+                </ExternalLink>
+              </NavLink>
+              <NavLink to={postData.html_url}>
+                <ExternalLink>
+                  VER NO GITHUB
+                  <FaExternalLinkAlt />
+                </ExternalLink>
+              </NavLink>
+            </Links>
+            <TitleContent>
+              <h1>{postData.title}</h1>
+            </TitleContent>
+            <MoreInfo>
+              <InfoContent>
+                <FaGithub size={18} />
+                <p>{postData.user.login}</p>
+              </InfoContent>
+              <InfoContent>
+                <FaCalendar size={18} />
+                <p>
+                  {formatDistanceToNow(new Date(postData.created_at), {
+                    addSuffix: true,
+                    locale: ptBR,
+                  })}
+                </p>
+              </InfoContent>
+              <InfoContent>
+                <FaComment size={18} />
+                <p>{postData.comments} Comentários</p>
+              </InfoContent>
+            </MoreInfo>
+          </CardContent>
+        </SummaryPostCard>
+      )}
     </SummaryContainer>
   );
 }

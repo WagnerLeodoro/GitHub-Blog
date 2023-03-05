@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { BlogContext } from "../../../contexts/BlogContext";
 
 import {
   CardContent,
@@ -10,8 +12,6 @@ import {
   TitleContent,
 } from "./styles";
 
-import Avatar from "../../../assets/avatar.png";
-
 import {
   FaBuilding,
   FaExternalLinkAlt,
@@ -20,37 +20,35 @@ import {
 } from "react-icons/fa";
 
 export function ProfileInfo() {
+  const { userInformations } = useContext(BlogContext);
+
   return (
     <SummaryContainer>
       <SummaryProfileCard>
-        <img src={Avatar} />
+        <img src={userInformations.avatar_url} />
         <CardContent>
           <TitleContent>
-            <h1>Cameron Williamson</h1>
-            <NavLink to="https://github.com/WagnerLeodoro">
+            <h1>{userInformations.name}</h1>
+            <NavLink to={userInformations.html_url}>
               <ExternalLink>
                 GITHUB
                 <FaExternalLinkAlt />
               </ExternalLink>
             </NavLink>
           </TitleContent>
-          <p>
-            Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-            viverra massa quam dignissim aenean malesuada suscipit. Nunc,
-            volutpat pulvinar vel mass.
-          </p>
+          <p>{userInformations.bio}</p>
           <MoreInfo>
             <InfoContent>
               <FaGithub size={18} />
-              <p>CameronWil</p>
+              <p>{userInformations.login}</p>
             </InfoContent>
             <InfoContent>
               <FaBuilding size={18} />
-              <p>RocketSeat</p>
+              <p>{userInformations.company}</p>
             </InfoContent>
             <InfoContent>
               <FaUserFriends size={18} />
-              <p>32 Seguidores</p>
+              <p>{userInformations.followers} Seguidores</p>
             </InfoContent>
           </MoreInfo>
         </CardContent>

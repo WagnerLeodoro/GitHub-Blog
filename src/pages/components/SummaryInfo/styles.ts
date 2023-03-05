@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const SummaryContainer = styled.section`
   display: flex;
+  min-height: 13.25rem;
   justify-content: center;
   max-width: 1120px;
   margin: 0 auto;
@@ -10,7 +11,7 @@ export const SummaryContainer = styled.section`
 
 export const SummaryProfileCard = styled.div`
   display: flex;
-  width: 864px;
+  width: 100%;
   background: ${({ theme }) => theme.colors["base-profile"]};
   border-radius: 10px;
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
@@ -18,11 +19,12 @@ export const SummaryProfileCard = styled.div`
 
   img {
     width: 148px;
+    border-radius: 8px;
   }
 `;
 
 export const SummaryPostCard = styled.div`
-  width: 864px;
+  width: 100%;
   background: ${({ theme }) => theme.colors["base-profile"]};
   border-radius: 10px;
   box-shadow: 0px 2px 28px rgba(0, 0, 0, 0.2);
@@ -31,6 +33,7 @@ export const SummaryPostCard = styled.div`
 
 export const CardContent = styled.div`
   display: flex;
+  justify-content: space-between;
   flex-direction: column;
   margin-left: 2rem;
   gap: 0.5rem;
@@ -47,6 +50,7 @@ export const CardContent = styled.div`
 
 export const TitleContent = styled.div`
   display: flex;
+  width: 100%;
   justify-content: space-between;
 
   h1 {
@@ -57,6 +61,7 @@ export const TitleContent = styled.div`
 
 export const Links = styled.nav`
   display: flex;
+  width: 100%;
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 1.25rem;
